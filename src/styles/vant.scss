@@ -1,0 +1,27 @@
+/*预览图片大小更改*/
+.van-image-preview__image{
+  min-width: 100% !important;
+  max-height: 85% !important;
+}
+
+/*picker无法滚动解决*/
+.van-picker-column{
+  position:relative;
+  z-index:1;
+  &:before{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    content:'';
+  }
+  &>ul{
+    z-index:-1;
+    position:relative;
+  }
+}
+/*proup取消白色背景*/
+.van-popup{
+  background: transparent;
+}

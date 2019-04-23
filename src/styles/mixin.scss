@@ -1,0 +1,18 @@
+
+
+$baseFontSize: 75;
+
+@function px2rem($px){
+  @return $px/$baseFontSize * 1rem;
+}
+
+@mixin px2rem($name,$px){
+    #{$name}:$px/$baseFontSize * 1rem;
+}
+
+@mixin bg-image($url){
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
+    background-image: url($url + "@3x.png")
+  }
+}
