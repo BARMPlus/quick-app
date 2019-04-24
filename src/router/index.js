@@ -34,6 +34,10 @@ let constantRouterMap = [
     children: [
       { path: 'index', component: _import('my/index') }
     ]
+  },
+  {
+    path: '/member',
+    component: _import('member/index')
   }
 
 ]

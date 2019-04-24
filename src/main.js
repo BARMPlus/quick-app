@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VConsole from 'vconsole'
-import { Button } from 'vant'
+import { Button, Swipe, SwipeItem } from 'vant'
 import 'utils/flexible'
 import router from './router'
 import store from './store'
 import App from './App.vue'
 
-let vantComponent = [Button]
+let vantComponent = [Button, Swipe, SwipeItem]
 vantComponent.forEach((key) => {
   Vue.use(key)
 })

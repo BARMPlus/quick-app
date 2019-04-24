@@ -1,10 +1,11 @@
 let path = require('path')
 let ImageminPlugin = require('imagemin-webpack-plugin').default
 let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-let isLint=true
-let isProd=process.env.NODE_ENV === 'production'
-let cdnUrl=process.env.VUE_APP_CDN_URL||'/'
+let isLint = true
+let isProd = process.env.NODE_ENV === 'production'
+let cdnUrl = process.env.VUE_APP_CDN_URL || '/'
 
 
 function resolve(dir) {
@@ -12,10 +13,10 @@ function resolve(dir) {
 }
 
 module.exports = {
-    publicPath: isProd?cdnUrl:'/',
+    publicPath: isProd ? cdnUrl : '/',
     productionSourceMap: false,
     runtimeCompiler: true,
-    lintOnSave:isLint&&!isProd,
+    lintOnSave: isLint && !isProd,
     devServer: {
         open: 'true',
         port: '3100',
@@ -31,11 +32,19 @@ module.exports = {
                 pngquant: {
                     quality: '95-100'
                 }
-            })
+            }),
+            new CopyWebpackPlugin([
+                {
+                    from: path.resolve(__dirname, './static'),
+                    to: 'static',
+                    ignore: ['.*']
+                }
+            ])
         ],
         resolve: {
             alias: {
                 '@': resolve('src'),
+                'static': resolve('static'),
                 'api': resolve('src/api'),
                 'assets': resolve('src/assets'),
                 'components': resolve('src/components'),
