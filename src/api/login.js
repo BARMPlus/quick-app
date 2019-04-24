@@ -1,7 +1,7 @@
 /**
 * Created by Administrator on 2018/4/17.
 */
-import fetch from 'common/js/fetch'
+import fetch from 'utils/fetch'
 
 export function login (returnUrl) {
   return fetch({

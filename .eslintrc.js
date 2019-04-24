@@ -1,4 +1,3 @@
-// https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
   root: true,
@@ -9,17 +8,12 @@ module.exports = {
     browser: true,
   },
   extends: [
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/essential', 
-    // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+    'plugin:vue/essential',
     'standard'
   ],
-  // required to lint *.vue files
   plugins: [
     'vue'
   ],
-  // add your custom rules here
   rules: {
     'vue/require-component-is': 'off',
     // allow async-await
@@ -27,7 +21,7 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
-    'no-unused-expressions': [2, { 'allowShortCircuit': true, 'allowTernary': true }], // 允许 短路求值， if else
+    'no-unused-expressions': [2, { 'allowShortCircuit': true, 'allowTernary': true }],
     'camelcase': [0, { 'properties': 'always' }],
   }
 }

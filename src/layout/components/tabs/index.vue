@@ -2,7 +2,7 @@
     <div class="tabs">
         <router-link to="/home" class="tab-item" replace>首页</router-link>
         <router-link to="/timetable" class="tab-item" replace>课表</router-link>
-        <router-link to="my" class="tab-item" replace>我的</router-link>
+        <router-link to="/my" class="tab-item" replace>我的</router-link>
     </div>
 </template>
 
