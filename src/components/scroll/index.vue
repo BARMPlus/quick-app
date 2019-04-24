@@ -10,7 +10,7 @@ export default {
   mounted () {
     setTimeout(() => {
       this._initScroll()
-      this.initHeight()
+      this._initHeight()
     }, 20)
   },
   props: {
@@ -91,7 +91,7 @@ export default {
         })
       }
     },
-    initHeight () {
+    _initHeight () {
       if (!this.autoScroll) {
         this.refresh()
         return
@@ -133,7 +133,7 @@ export default {
   watch: {
     data () {
       this.$nextTick(() => {
-        this.initHeight()
+        this._initHeight()
       })
     }
   }
