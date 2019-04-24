@@ -8,12 +8,12 @@
 </template>
 
 <script>
-    import Tabs from './components/tabs/index'
-    export default {
-        components: {
-            Tabs
-        }
-    }
+import Tabs from './components/tabs/index'
+export default {
+  components: {
+    Tabs
+  }
+}
 </script>
 
 <style lang="scss" scoped>
