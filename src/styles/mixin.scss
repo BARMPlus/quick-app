@@ -16,3 +16,22 @@ $baseFontSize: 75;
     background-image: url($url + "@3x.png")
   }
 }
+
+@mixin ellipsis($line){
+  @if $line==1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @else {
+    word-break: break-all;
+    overflow: hidden;
+    white-space:normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:$line;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical
+    /* autoprefixer: on */
+  }
+}
