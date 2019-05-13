@@ -59,7 +59,11 @@ export default {
         probeType: this.probeType,
         click: this.click,
         pullUpLoad: this.pullUpLoad,
-        pullDownRefresh: this.pullDownRefresh
+        pullDownRefresh: this.pullDownRefresh,
+        preventDefaultException: {
+          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|AUDIO)$/,
+          className: /(^|\s)audio-prevent/
+        }
       })
       if (this.listenScroll) { // 派发滚动事件
         this.scroll.on('scroll', (pos) => {
