@@ -49,6 +49,8 @@ module.exports = {
                 'api': resolve('src/api'),
                 'assets': resolve('src/assets'),
                 'components': resolve('src/components'),
+                'icon': resolve('src/icon'),
+                'sprite': resolve('src/icon/sprite'),
                 'layout': resolve('src/layout'),
                 'styles': resolve('src/styles'),
                 'utils': resolve('src/utils'),

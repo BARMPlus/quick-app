@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:test": "vue-cli-service build --mode test",
+    "build:preview": "vue-cli-service build --mode preview",
     "build:report": "vue-cli-service build --mode report",
     "build": "vue-cli-service build",
-    "prod":"node prod.server",
+    "prod": "node src/utils/develop/server",
+    "sprite": "node src/utils/develop/sprite",
     "lint": "vue-cli-service lint",
     "lint:fix": "eslint --fix --ext .js,.vue src"
   },
@@ -47,7 +49,8 @@
     "postcss-pxtorem": "^4.0.1",
     "sass-loader": "^7.1.0",
     "vconsole": "^3.3.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-spritesmith": "^1.0.1"
   },
   "eslintConfig": {
     "root": true,
