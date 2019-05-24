@@ -1,3 +1,4 @@
+/* 以dist目录为基础，开启本地服务 */
 
 const express = require('express')
 

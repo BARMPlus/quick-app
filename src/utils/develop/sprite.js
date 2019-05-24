@@ -1,3 +1,5 @@
+/* 自动生成Sprite，禁止放入webpack-plugin，避免每次打包需重新生成 */
+
 const path = require('path')
 const fs = require('fs')
 const webpack = require('webpack')
