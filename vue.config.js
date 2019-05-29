@@ -28,19 +28,19 @@ module.exports = {
     },
     configureWebpack: {
         plugins: [
-            new ImageMinPlugin({
-                disable: !isProd,
-                pngquant: {
-                    quality: '95-100'
-                }
-            }),
             new CopyWebpackPlugin([
                 {
                     from: path.resolve(__dirname, './static'),
                     to: 'static',
                     ignore: ['.*']
                 }
-            ])
+            ]),
+            new ImageMinPlugin({
+                disable: !isProd,
+                pngquant: {
+                    quality: '95-100'
+                }
+            })
         ],
         resolve: {
             alias: {
