@@ -1,15 +1,10 @@
 import Vue from 'vue'
 import VConsole from 'vconsole'
-import { Button, Swipe, SwipeItem } from 'vant'
+import 'utils/vant'
 import 'utils/flexible'
 import router from './router'
 import store from './store'
 import App from './App.vue'
-
-let vantComponent = [Button, Swipe, SwipeItem]
-vantComponent.forEach((key) => {
-  Vue.use(key)
-})
 
 process.env.NODE_ENV !== 'production' && new VConsole({ maxLogNumber: 5000, defaultPlugins: ['network', 'element', 'storage'] }) // console.log调试工具
 
