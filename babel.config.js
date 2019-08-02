@@ -1,3 +1,6 @@
+const isProd = process.env.NODE_ENV === 'production'
+const plugins=isProd?['transform-remove-console']:[]
+
 module.exports = {
     presets: [
         '@vue/app'
@@ -7,7 +10,8 @@ module.exports = {
             libraryName: 'vant',
             libraryDirectory: 'es',
             style: true
-        }, 'vant']
+        }, 'vant'],
+        ...plugins
     ],
     sourceType: 'unambiguous'
 }
