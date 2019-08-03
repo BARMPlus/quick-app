@@ -1,20 +1,22 @@
 const path = require('path')
+const webpack=require('webpack')
 const ImageMinPlugin = require('imagemin-webpack-plugin').default
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const AddAssetHtmlPlugin=require('add-asset-html-webpack-plugin')
 
 const isLint = true  //是否开启ESLint  default:true
 const isSource=false //是否开启dev source源码（断点调试）default:false
 const isProd = process.env.NODE_ENV === 'production'
 const cdnUrl = process.env.VUE_APP_CDN_URL || '/'
-
+const publicPath = isProd ? cdnUrl : '/'
 
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
 module.exports = {
-    publicPath: isProd ? cdnUrl : '/',
+    publicPath,
     productionSourceMap: false,
     runtimeCompiler: true,
     lintOnSave: isLint && !isProd,
@@ -28,6 +30,19 @@ module.exports = {
         }
     },
     configureWebpack: (config)=>{
+        let extraPlugins=[]
+        if (isProd){
+            extraPlugins=[
+                new AddAssetHtmlPlugin({
+                    filepath:path.resolve(__dirname, './dll/chunk-dll.*.js'),
+                    outputPath:'js',
+                    publicPath:`${publicPath}js`
+                }), //dll.js添加
+                new webpack.DllReferencePlugin({
+                    manifest:path.resolve(__dirname, './dll/chunk-dll.manifest.json')
+                })  //dll 映射关系
+            ]
+        }
         return {
             devtool:isSource&&'eval-source-map'||'eval',
             plugins: [
@@ -43,7 +58,8 @@ module.exports = {
                     pngquant: {
                         quality: '90-100'
                     }
-                })
+                }),
+                ...extraPlugins
             ],
             resolve: {
                 alias: {

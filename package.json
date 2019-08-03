@@ -8,6 +8,7 @@
     "build:preview": "vue-cli-service build --mode preview",
     "build:report": "vue-cli-service build --mode report",
     "build": "vue-cli-service build",
+    "dll": "webpack --config ./dll/webpack.dll.js",
     "prod": "node src/utils/develop/server",
     "sprite": "node src/utils/develop/sprite",
     "lint": "vue-cli-service lint",
@@ -37,6 +38,7 @@
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-standard": "^4.0.0",
+    "add-asset-html-webpack-plugin": "^3.1.3",
     "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.11.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
@@ -51,6 +53,7 @@
     "sass-loader": "^7.1.0",
     "vconsole": "^3.3.0",
     "vue-template-compiler": "^2.5.21",
+    "webpack-cli": "^3.3.6",
     "webpack-spritesmith": "^1.0.1"
   },
   "eslintConfig": {
