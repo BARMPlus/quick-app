@@ -1,3 +1,6 @@
+import { wiXinFontProhibitChange } from './compatible'
+import { isPc } from './index'
+
 (function (win, doc) {
   let window = win
   let document = doc
@@ -9,9 +12,10 @@
   metaEl.setAttribute('content', `width=device-width,initial-scale=${1 / dpr},maximum-scale=${1 / dpr},
    minimum-scale=${1 / dpr}, user-scalable=no`)
   docEl.firstElementChild.appendChild(metaEl)
-  docEl.style.fontSize = `${docEl.clientWidth / 10}px`
+  docEl.style.fontSize = isPc() ? '75px' : `${docEl.clientWidth / 10}px`
   window.addEventListener('resize', function () {
-    docEl.style.fontSize = `${docEl.clientWidth / 10}px`
+    docEl.style.fontSize = isPc() ? '75px' : `${docEl.clientWidth / 10}px`
   })
   docEl.setAttribute('data-dpr', dpr)
+  wiXinFontProhibitChange()
 })(window, document)

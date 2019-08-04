@@ -11,6 +11,9 @@ module.exports = {
     'plugin:vue/essential',
     'standard'
   ],
+  globals: {
+    'WeixinJSBridge': false
+  },
   plugins: [
     'vue'
   ],
