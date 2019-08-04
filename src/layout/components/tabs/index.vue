@@ -18,7 +18,7 @@ export default {}
         bottom: 0;
         display: flex;
         width: 10rem;
-        height: px2rem($tab-height);
+        height: $tab-height;
         background: #fff;
         .tab-item{
             display: flex;

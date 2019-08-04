@@ -33,6 +33,12 @@ module.exports = {
         let extraPlugins=[]
         if (isProd){
             extraPlugins=[
+                new ImageMinPlugin({ //图片压缩
+                    disable: false,
+                    pngquant: {
+                        quality: '90-100'
+                    }
+                }),
                 new AddAssetHtmlPlugin({
                     filepath:path.resolve(__dirname, './dll/chunk-dll.*.js'),
                     outputPath:'js',
@@ -45,6 +51,17 @@ module.exports = {
         }
         return {
             devtool:isSource&&'eval-source-map'||'eval',
+            resolveLoader: {
+                modules: ['./src/utils/develop']
+            },
+            module:{
+                rules:[{
+                    test:/\.css/,
+                    include:resolve('node_modules','vant'),
+                    use:['vantCss-loader']
+                }
+                ]
+            },
             plugins: [
                 new CopyWebpackPlugin([
                     {
@@ -53,12 +70,6 @@ module.exports = {
                         ignore: ['.*']
                     }
                 ]),
-                new ImageMinPlugin({
-                    disable: !isProd,
-                    pngquant: {
-                        quality: '90-100'
-                    }
-                }),
                 ...extraPlugins
             ],
             resolve: {

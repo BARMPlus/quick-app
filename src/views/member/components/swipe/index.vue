@@ -24,6 +24,6 @@ export default {
     @import '~styles/variable';
     .image{
         width: 10rem;
-        height: px2rem(320);
+        height: 320px;
     }
 </style>

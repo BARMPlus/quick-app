@@ -23,7 +23,7 @@ export default {
         height: 100%;
         .router-view {
             overflow-x: hidden;
-            height: calc(100% - #{px2rem($tab-height)});
+            height: calc(100% - #{$tab-height});
         }
     }
 </style>
