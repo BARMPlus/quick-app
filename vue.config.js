@@ -25,7 +25,7 @@ module.exports = {
         port: '3100',
         disableHostCheck: true,
         overlay: {
-            warnings: true,
+            warnings: false,
             errors: true
         }
     },
