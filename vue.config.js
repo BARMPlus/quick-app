@@ -29,6 +29,16 @@ module.exports = {
             errors: true
         }
     },
+    css: {
+        loaderOptions: {
+            scss: {
+                prependData: `
+                @import "~styles/variable.scss";
+                @import "~styles/mixin.scss";
+                `
+            }
+        }
+    },
     configureWebpack: (config)=>{
         let extraPlugins=[]
         if (isProd){
