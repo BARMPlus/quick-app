@@ -11,8 +11,8 @@ const isProd = process.env.NODE_ENV === 'production'
 const cdnUrl = process.env.VUE_APP_CDN_URL || '/'
 const publicPath = isProd ? cdnUrl : '/'
 
-function resolve(dir) {
-    return path.join(__dirname, dir)
+function resolve(...dir) {
+    return path.join(__dirname, ...dir)
 }
 
 module.exports = {
